@@ -1,36 +1,22 @@
 import React, { useEffect, useState } from "react";
-import Tabletop from "tabletop";
 import styled, { createGlobalStyle } from "@xstyled/styled-components";
 import { ThemeProvider, GlobalStyle, TaskBar } from "@react95/core";
 
-import localforage from "localforage";
+import Files from "./Components/Files/index";
+import Loading from "./Components/Loading";
+import TaskList from "./Components/TaskList";
+import FileModal from "./Components/FileModal.js";
 
-import {
-  Recipes,
-  Loading,
-  IngredientsModal,
-  RecipeModal,
-  TaskList
-} from "./components";
-
-const SPREADSHEET_ID = "1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI";
-
-const recipesDB = localforage.createInstance({
-  name: " recipes"
-});
-
-const ingredientsDB = localforage.createInstance({
-  name: "ingredients"
-});
+import Content from "./Components/Content";
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  navigator.userAgent
+	navigator.userAgent
 );
 
 const Hero = styled.h1`
-  font-size: 40px;
-  width: 100%;
-  text-align: center;
+	font-size: 40px;
+	width: 100%;
+	text-align: center;
 `;
 
 const Style = createGlobalStyle`
@@ -40,127 +26,61 @@ const Style = createGlobalStyle`
 `;
 
 function App() {
-  const [recipes, setRecipes] = useState({});
-  const [allIngredients, setAllIngredients] = useState([]);
-  const [selectedRecipe, setSelectedRecipe] = useState({});
-  const [showModal, toggleModal] = useState(false);
-  const [loading, toggleLoading] = useState(false);
-  const [showFilterModal, toggleFilterModal] = useState(false);
+	const [files, setFiles] = useState({});
+	const [, setFileContent] = useState();
+	const [selectedFile, setSelectedFile] = useState({});
+	const [showModal, toggleModal] = useState(false);
+	const [loading, toggleLoading] = useState(false);
 
-  function openModal() {
-    toggleModal(true);
-  }
+	function openModal() {
+		toggleModal(true);
+	}
 
-  function closeModal() {
-    toggleModal(false);
-  }
+	function closeModal() {
+		toggleModal(false);
+	}
 
-  function getDataFromSpreadsheet() {
-    toggleLoading(true);
-    Tabletop.init({
-      key: SPREADSHEET_ID,
-      callback: (_, data) => {
-        const allRecipes = Object.values(data.models).map(m => {
-          const pIndex = m.elements.findIndex(e =>
-            e.Ingredientes.toLowerCase().includes("preparo")
-          );
+	function fetchData() {
+		toggleLoading(true);
 
-          const ingredients = m.elements.slice(0, pIndex);
-          const preparation = m.elements.slice(pIndex + 1, m.elements.length);
+		setFiles(Content);
+		setFileContent(Content.content);
 
-          return { name: m.name, ingredients, preparation };
-        });
+		setTimeout(() => toggleLoading(false));
+	}
 
-        const allIngredients = Array.from(
-          new Set(
-            allRecipes
-              .map(r => r.ingredients.map(i => i.Ingredientes))
-              .flat()
-              .sort()
-          )
-        ).map(i => ({
-          name: i,
-          checked: false
-        }));
+	useEffect(() => {
+		fetchData();
+	}, []);
 
-        recipesDB.setItem("recipes", allRecipes);
-        ingredientsDB.setItem("ingredients", allIngredients);
+	return (
+		<ThemeProvider>
+			<GlobalStyle />
+			<Style />
+			<Hero>Kaio Felipe Silva</Hero>
 
-        setRecipes(allRecipes);
-        setAllIngredients(allIngredients);
+			{Object.keys(files).length > 0 && (
+				<Files
+					files={files}
+					openModal={openModal}
+					setSelectedFile={setSelectedFile}
+					isMobile={isMobile}
+				/>
+			)}
 
-        setTimeout(() => toggleLoading(false));
-      },
-      simpleSheet: true
-    });
-  }
+			{showModal && (
+				<FileModal
+					selectedFile={selectedFile}
+					closeModal={closeModal}
+					isMobile={isMobile}
+				/>
+			)}
 
-  useEffect(() => {
-    async function fetchData() {
-      const recipes = await recipesDB.getItem("recipes");
-      const ingredients = await ingredientsDB.getItem("ingredients");
+			<TaskBar list={<TaskList />} />
 
-      if (!recipes) {
-        getDataFromSpreadsheet();
-      } else {
-        setRecipes(recipes);
-        setAllIngredients(ingredients);
-      }
-    }
-
-    fetchData();
-  }, []);
-
-  const filter = allIngredients.filter(t => t.checked).map(i => i.name);
-
-  return (
-    <ThemeProvider>
-      <GlobalStyle />
-      <Style />
-      <Hero>95 Recipes </Hero>
-
-      {Object.keys(recipes).length > 0 && (
-        <Recipes
-          recipes={recipes}
-          openModal={openModal}
-          setSelectedRecipe={setSelectedRecipe}
-          openFilterModal={toggleFilterModal}
-          filter={filter}
-          isMobile={isMobile}
-        />
-      )}
-
-      {showModal && (
-        <RecipeModal
-          selectedRecipe={selectedRecipe}
-          closeModal={closeModal}
-          isMobile={isMobile}
-        />
-      )}
-
-      {showFilterModal && (
-        <IngredientsModal
-          allIngredients={allIngredients}
-          toggleFilterModal={toggleFilterModal}
-          setAllIngredients={setAllIngredients}
-          isMobile={isMobile}
-        />
-      )}
-
-      <TaskBar
-        list={
-          <TaskList
-            spreadsheetID={SPREADSHEET_ID}
-            onUpdate={() => {
-              getDataFromSpreadsheet();
-            }}
-          />
-        }
-      />
-
-      {loading && <Loading />}
-    </ThemeProvider>
-  );
+			{loading && <Loading />}
+		</ThemeProvider>
+	);
 }
 
 export default App;
