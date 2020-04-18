@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "@react95/core";
+import { Modal, Frame } from "@react95/core";
 
 import Career from "./Career";
 import About from "./About";
@@ -33,7 +33,18 @@ const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 			closeModal={closeModal}
 			buttons={[{ value: "Close", onClick: closeModal }]}
 		>
-			{renderContent(selectedFile)}
+			<Frame
+				bg="white"
+				boxShadow="in"
+				height="100%"
+				p={10}
+				style={{
+					overflowY: "auto",
+					maxHeight: "60vh",
+				}}
+			>
+				{renderContent(selectedFile)}
+			</Frame>
 		</Modal>
 	);
 };
