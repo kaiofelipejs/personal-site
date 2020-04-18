@@ -1,23 +1,11 @@
 import React from "react";
-import { Modal, TextArea } from "@react95/core";
+import { Modal } from "@react95/core";
 
-async function share({ title, text }) {
-	await navigator.share({
-		title,
-		text: `*${title}*
-    
-${text}`,
-		url: "https://ggdaltoso.dev/95Recipes/",
-	});
-}
+import Career from "./Career";
 
 const FileModal = ({ selectedFile, closeModal, isMobile }) => {
-	const text = `${selectedFile.name}`;
-
-	console.log(selectedFile);
-
 	const boxProps = {
-		width: isMobile ? window.innerWidth : undefined,
+		width: isMobile ? window.innerWidth : 500,
 		height: isMobile ? window.innerHeight - 30 : "auto",
 	};
 
@@ -28,19 +16,9 @@ const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 			icon={selectedFile.icon}
 			title={selectedFile.name}
 			closeModal={closeModal}
-			buttons={[
-				...(navigator.share !== undefined
-					? [
-							{
-								value: "Share",
-								onClick: () => share({ title: selectedFile.name, text }),
-							},
-					  ]
-					: []),
-				{ value: "Close", onClick: closeModal },
-			]}
+			buttons={[{ value: "Close", onClick: closeModal }]}
 		>
-			<TextArea legend="Ingredients" value={text} rows={30} readOnly />
+			{selectedFile.name === "Career" ? <Career /> : ""}
 		</Modal>
 	);
 };

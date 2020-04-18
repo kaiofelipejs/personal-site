@@ -7,7 +7,7 @@ import Loading from "./Components/Loading";
 import TaskList from "./Components/TaskList";
 import FileModal from "./Components/FileModal.js";
 
-import Content from "./Components/Content";
+import FileNamesIcons from "./Components/FileNamesIcons";
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
 	navigator.userAgent
@@ -27,7 +27,6 @@ const Style = createGlobalStyle`
 
 function App() {
 	const [files, setFiles] = useState({});
-	const [, setFileContent] = useState();
 	const [selectedFile, setSelectedFile] = useState({});
 	const [showModal, toggleModal] = useState(false);
 	const [loading, toggleLoading] = useState(false);
@@ -40,17 +39,12 @@ function App() {
 		toggleModal(false);
 	}
 
-	function fetchData() {
+	useEffect(() => {
 		toggleLoading(true);
 
-		setFiles(Content);
-		setFileContent(Content.content);
+		setFiles(FileNamesIcons);
 
 		setTimeout(() => toggleLoading(false));
-	}
-
-	useEffect(() => {
-		fetchData();
 	}, []);
 
 	return (

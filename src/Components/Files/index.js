@@ -16,16 +16,13 @@ const Files = ({ files, setSelectedFile, openModal, isMobile }) => {
 			? { x: 0, y: 50 }
 			: { x: window.innerWidth / 2 - 250, y: 100 },
 		width: isMobile ? window.innerWidth - 40 : 500,
+		style: isMobile ? { marginLeft: 20, height: "auto" } : "",
 	};
 
 	return (
 		<Modal
 			title={`${files.length} files`}
 			icon="windows_explorer"
-			style={{
-				marginLeft: 20,
-				height: "auto",
-			}}
 			{...boxProps}
 			menu={[]}
 		>
