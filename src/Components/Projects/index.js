@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@react95/core";
-import { Link, ListItem } from "./styled";
+import { Link, ListItem, Divider } from "./styled";
 
 import projects from "./content";
 
@@ -23,6 +23,8 @@ const Projects = () => {
 					</Link>
 
 					<Link href={project.urls.sourceCode}>Source Code</Link>
+
+					<Divider />
 				</div>
 			))}
 		</>

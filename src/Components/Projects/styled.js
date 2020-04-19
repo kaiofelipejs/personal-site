@@ -11,3 +11,8 @@ export const Link = styled.a.attrs({
 export const ListItem = styled.li`
 	margin-bottom: 5px;
 `;
+
+export const Divider = styled.hr`
+	margin-top: 15px;
+	border: 0.5px solid #c3c7cb;
+`;
