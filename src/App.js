@@ -23,6 +23,11 @@ const Style = createGlobalStyle`
   body {
     font-size: 12px;
   }
+
+  p {
+	  line-height: 1.58; 
+  }
+
 `;
 
 function App() {
