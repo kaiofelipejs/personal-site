@@ -17,6 +17,10 @@ export const links = [
 		label: "Instagram",
 		url: `https://www.instagram.com/${user}`,
 	},
+	{
+		label: "Medium",
+		url: `https://www.medium.com/@${user}`,
+	},
 ];
 
 export const email = "kaiofelipe.js@gmail.com";
