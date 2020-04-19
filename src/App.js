@@ -61,7 +61,13 @@ function App() {
 			<GlobalStyle />
 			<Style />
 			<Title>Kaio Felipe Silva</Title>
-			<Subtitle>Welcome to Windows 95 experience!</Subtitle>
+			<Subtitle>
+				Hello!{" "}
+				<span role="img" aria-label="waving hand">
+					👋
+				</span>
+				<br /> Welcome and enjoy the Windows 95 experience!
+			</Subtitle>
 
 			{Object.keys(files).length > 0 && (
 				<Files
