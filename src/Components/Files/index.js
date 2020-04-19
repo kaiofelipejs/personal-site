@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 const Files = ({ files, setSelectedFile, openModal, isMobile }) => {
 	const boxProps = {
 		defaultPosition: isMobile
-			? { x: 0, y: 50 }
+			? { x: 0, y: 100 }
 			: { x: window.innerWidth / 2 - 250, y: 100 },
 		width: isMobile ? window.innerWidth - 40 : 500,
 		style: isMobile ? { marginLeft: 20, height: "auto" } : "",
