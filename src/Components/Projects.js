@@ -18,7 +18,7 @@ const Projects = () => {
 			tools: ["Figma", "PHP", "Wordpress"],
 			urls: {
 				sourceCode: "https://github.com/kaiofelipejs/psico-vanessa-mattos",
-				url: "http://www.vanessamattos.com.br/",
+				appUrl: "http://www.vanessamattos.com.br/",
 			},
 		},
 		{
@@ -27,7 +27,7 @@ const Projects = () => {
 			tools: ["Figma", "NodeJS", "React", "Knex", "Postgres"],
 			urls: {
 				sourceCode: "https://github.com/kaiofelipejs/psico-vanessa-mattos",
-				url: "http://www.vanessamattos.com.br/",
+				appUrl: "http://www.vanessamattos.com.br/",
 			},
 		},
 	];
@@ -49,7 +49,7 @@ const Projects = () => {
 						<Button value={"Source Code"} />
 					</Link>
 
-					<Link href={c.urls.url}>
+					<Link href={c.urls.appUrl}>
 						<Button value={"View"} />
 					</Link>
 				</div>
