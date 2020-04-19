@@ -5,8 +5,8 @@ import { ListItem, Link } from "./styled";
 
 const TaskList = () => (
 	<List>
-		<ListItem smallIcon icon="file_pen">
-			<Link href="https://medium.com/@kaiofelipejs">My Blog</Link>
+		<ListItem smallIcon icon="plugin">
+			<Link href="https://github.com/React95/React95">React95 Library</Link>
 		</ListItem>
 		<List.Divider />
 		<ListItem icon="computer_3">
