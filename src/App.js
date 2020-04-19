@@ -13,8 +13,13 @@ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 	navigator.userAgent
 );
 
-const Hero = styled.h1`
+const Title = styled.h1`
 	font-size: 40px;
+	width: 100%;
+	text-align: center;
+`;
+
+const Subtitle = styled.h3`
 	width: 100%;
 	text-align: center;
 `;
@@ -55,7 +60,8 @@ function App() {
 		<ThemeProvider>
 			<GlobalStyle />
 			<Style />
-			<Hero>Kaio Felipe Silva</Hero>
+			<Title>Kaio Felipe Silva</Title>
+			<Subtitle>Welcome to Windows 95 experience!</Subtitle>
 
 			{Object.keys(files).length > 0 && (
 				<Files
