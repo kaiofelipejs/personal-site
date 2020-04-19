@@ -27,7 +27,6 @@ const Style = createGlobalStyle`
   p {
 	  line-height: 1.58; 
   }
-
 `;
 
 function App() {
