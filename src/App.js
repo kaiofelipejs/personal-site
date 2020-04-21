@@ -60,13 +60,14 @@ function App() {
 		<ThemeProvider>
 			<GlobalStyle />
 			<Style />
-			<Title>Kaio Felipe Silva</Title>
-			<Subtitle>
+			<Title>
 				Hello!{" "}
 				<span role="img" aria-label="waving hand">
-					👋
+					👋🏽
 				</span>
-				<br /> Welcome and enjoy the Windows 95 experience!
+			</Title>
+			<Subtitle>
+				I'm Kaio Felipe Silva, a simple guy that write some codes.
 			</Subtitle>
 
 			{Object.keys(files).length > 0 && (
