@@ -1,6 +1,6 @@
 import React from "react";
-import { resume, education } from "./content";
-import { Divider } from "./styled";
+import { resume, education, courses } from "./content";
+import { Divider, Link } from "./styled";
 
 const Career = () => {
 	return (
@@ -38,6 +38,23 @@ const Career = () => {
 
 					<p>{e.description}</p>
 
+					<Divider />
+				</div>
+			))}
+
+			<h2>Courses</h2>
+			{courses.map((c) => (
+				<div key={c.name}>
+					<p>
+						<strong>{c.name}</strong> | {c.organization}
+					</p>
+
+					<span>
+						{c.issueDate.month}/{c.issueDate.year}
+					</span>
+					<p>
+						<Link href={c.certificateUrl}>Certificate</Link>
+					</p>
 					<Divider />
 				</div>
 			))}
