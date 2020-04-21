@@ -133,21 +133,12 @@ export const courses = [
 		},
 	},
 	{
-		name: `Workshop Criando temas com uso de propriedades CSS customizadas"`,
+		name: `Workshop "Criando temas com uso de propriedades CSS customizadas"`,
 		organization: "teken",
 		certificateUrl:
 			"https://drive.google.com/file/d/1pr9LvUGnKOg--EYY6zn8az5V_mhqmFPS/view?usp=sharing",
 		issueDate: {
 			month: "August",
-			year: "2019",
-		},
-	},
-	{
-		name: "Web Design Completo",
-		organization: "Origamid",
-		certificateUrl: "https://www.origamid.com/certificate/75574e1e/",
-		issueDate: {
-			month: "July",
 			year: "2019",
 		},
 	},
