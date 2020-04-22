@@ -19,9 +19,41 @@ const Title = styled.h1`
 	text-align: center;
 `;
 
+const SubtitleWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
 const Subtitle = styled.h3`
 	width: 100%;
 	text-align: center;
+	animation: blinkCursor 900ms steps(40) infinite normal,
+		typing 4s steps(40) 1s normal both;
+
+	border-right: 2px solid rgba(0, 0, 0, 0.75);
+	text-align: center;
+	margin: 0 auto;
+	white-space: nowrap;
+	overflow: hidden;
+
+	@keyframes typing {
+		from {
+			width: 0;
+		}
+		to {
+			width: 24em;
+		}
+	}
+
+	@keyframes blinkCursor {
+		from {
+			border-right-color: rgba(0, 0, 0, 0.75);
+		}
+		to {
+			border-right-color: transparent;
+		}
+	}
 `;
 
 const Style = createGlobalStyle`
@@ -66,9 +98,11 @@ function App() {
 					👋🏽
 				</span>
 			</Title>
-			<Subtitle>
-				I'm Kaio Felipe Silva, a simple guy that write some codes.
-			</Subtitle>
+			<SubtitleWrapper>
+				<Subtitle>
+					I'm Kaio Felipe Silva, a simple guy that write some codes.
+				</Subtitle>
+			</SubtitleWrapper>
 
 			{Object.keys(files).length > 0 && (
 				<Files
