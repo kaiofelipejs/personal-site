@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { Wrapper } from "./styled";
-
 const Posts = () => {
 	const [posts, setPosts] = useState([]);
 
@@ -23,18 +21,35 @@ const Posts = () => {
 
 			setPosts(posts);
 		}
-
 		fetchData();
 	}, []);
 
+	function removeTimeStamp(date) {
+		return date.split(" ")[0];
+	}
+
+	function formatDate(date) {
+		const formatedDate = removeTimeStamp(date);
+
+		const month = formatedDate.slice(5, 7);
+		const year = formatedDate.slice(0, 4);
+		const day = formatedDate.slice(8);
+
+		return `${day}/${month}/${year}`;
+	}
+
 	return (
-		<Wrapper>
-			<div>
-				{posts.map((post) => (
-					<p>{post.title}</p>
-				))}
-			</div>
-		</Wrapper>
+		<>
+			<h2>Posts</h2>
+			{posts.map((post) => (
+				<div key={post.title}>
+					<a href={post.link} target="_blank" rel="noopener noreferrer">
+						<strong>{post.title}</strong>
+					</a>
+					<p>{formatDate(post.pubDate)}</p>
+				</div>
+			))}
+		</>
 	);
 };
 
