@@ -8,7 +8,7 @@ export const StyledFile = styled.div`
 	text-align: center;
 
 	width: 25%;
-	margin-bottom: 4px;
+	padding: 10px 0;
 `;
 
 export const Name = styled.span`

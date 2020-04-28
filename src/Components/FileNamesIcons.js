@@ -15,6 +15,10 @@ const Content = [
 		name: "Contact",
 		icon: "mail",
 	},
+	{
+		name: "Blog posts",
+		icon: "file_pen",
+	},
 ];
 
 export default Content;
