@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 
+import { PostTitle, PostDescription, PostDate, Divider } from "./styled";
+
 const Posts = () => {
 	const [posts, setPosts] = useState([]);
+	const [loading, toggleLoading] = useState(false);
 
 	const getPosts = async () => {
 		return fetch(
@@ -16,10 +19,12 @@ const Posts = () => {
 
 	useEffect(() => {
 		async function fetchData() {
+			toggleLoading(true);
 			const allPosts = await getPosts();
 			const posts = allPosts.filter((item) => item.categories.length > 0);
 
 			setPosts(posts);
+			setTimeout(() => toggleLoading(false));
 		}
 		fetchData();
 	}, []);
@@ -41,24 +46,25 @@ const Posts = () => {
 	function getTextFromTag(description, tag) {
 		const startTag = description.search(`<${tag}>`) + (tag.length + 2);
 		const endTag = description.search(`</${tag}>`);
-
 		const text = description.slice(startTag, endTag);
-
 		return text;
 	}
 
 	return (
 		<>
-			<h2>Posts</h2>
+			<h2>Posts on Medium</h2>
 			{posts.map((post) => (
 				<div key={post.title}>
-					<a href={post.guid} target="_blank" rel="noopener noreferrer">
-						<strong>{post.title}</strong>
-					</a>
-					<p>{formatDate(post.pubDate)}</p>
-					<p className="description">{getTextFromTag(post.description, "p")}</p>
+					<PostTitle href={post.guid}>{post.title}</PostTitle>
+					<PostDate>{formatDate(post.pubDate)}</PostDate>
+					<PostDescription>
+						{getTextFromTag(post.description, "p")}
+					</PostDescription>
+					<Divider />
 				</div>
 			))}
+
+			{loading && "Loading..."}
 		</>
 	);
 };
