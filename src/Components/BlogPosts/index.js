@@ -38,15 +38,25 @@ const Posts = () => {
 		return `${day}/${month}/${year}`;
 	}
 
+	function getTextFromTag(description, tag) {
+		const startTag = description.search(`<${tag}>`) + (tag.length + 2);
+		const endTag = description.search(`</${tag}>`);
+
+		const text = description.slice(startTag, endTag);
+
+		return text;
+	}
+
 	return (
 		<>
 			<h2>Posts</h2>
 			{posts.map((post) => (
 				<div key={post.title}>
-					<a href={post.link} target="_blank" rel="noopener noreferrer">
+					<a href={post.guid} target="_blank" rel="noopener noreferrer">
 						<strong>{post.title}</strong>
 					</a>
 					<p>{formatDate(post.pubDate)}</p>
+					<p className="description">{getTextFromTag(post.description, "p")}</p>
 				</div>
 			))}
 		</>
