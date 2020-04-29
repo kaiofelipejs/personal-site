@@ -4,12 +4,14 @@ export const PostTitle = styled.a.attrs({
 	target: "_blank",
 	rel: "noopener noreferrer",
 })`
+	display: block;
+	padding-top: 10px;
+	font-size: 16px;
 	cursor: pointer;
 	font-weight: bold;
 `;
 
 export const Divider = styled.hr`
-	margin-bottom: 15px;
 	border: 0.5px solid #c3c7cb;
 `;
 

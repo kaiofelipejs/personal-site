@@ -52,7 +52,6 @@ const Posts = () => {
 
 	return (
 		<>
-			<h2>Posts on Medium</h2>
 			{posts.map((post) => (
 				<div key={post.title}>
 					<PostTitle href={post.guid}>{post.title}</PostTitle>
