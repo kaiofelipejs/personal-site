@@ -4,7 +4,7 @@ import about from "./content";
 const About = () => {
 	return (
 		<>
-			<h4>{about.title}</h4>
+			<h3>{about.title}</h3>
 			<p>{about.description}</p>
 		</>
 	);
