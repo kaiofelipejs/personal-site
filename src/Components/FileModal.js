@@ -43,7 +43,7 @@ const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 				p={10}
 				style={{
 					overflowY: "auto",
-					maxHeight: "60vh",
+					maxHeight: "70vh",
 				}}
 			>
 				{renderContent(selectedFile)}
