@@ -5,7 +5,7 @@ import Career from "./Career";
 import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
-import Posts from "./BlogPosts";
+import BlogPosts from "./BlogPosts";
 
 const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 	const boxProps = {
@@ -22,7 +22,7 @@ const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 			case "Career":
 				return <Career />;
 			case "Blog posts":
-				return <Posts />;
+				return <BlogPosts />;
 			default:
 				return <Contact />;
 		}
