@@ -1,14 +1,32 @@
 import React from "react";
-
 import { links, email } from "./content";
 import Icons from "./Icons";
+import styled from "@xstyled/styled-components";
 
-import {
-	SocialLinksList,
-	SocialLinksWrapper,
-	SocialLinksItem,
-	SocialLinksLink,
-} from "./styled";
+const SocialLinksWrapper = styled.nav`
+	display: flex;
+	flex: 1;
+	justify-content: center;
+`;
+
+const SocialLinksList = styled.ul`
+	margin: 0;
+	padding: 0;
+	box-sizing: bordex-box;
+	display: flex;
+	list-style: none;
+`;
+
+const SocialLinksItem = styled.li``;
+
+const SocialLinksLink = styled.a`
+	display: inline-block;
+	text-align: center;
+	font-size: 20px;
+	padding: 10px;
+	color: inherit;
+	text-decoration: inherit;
+`;
 
 const Contact = () => (
 	<>
