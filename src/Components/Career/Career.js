@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "@xstyled/styled-components";
 import { resume, education, courses } from "./content";
-
-const Divider = styled.hr`
-	margin-top: 15px;
-	border: 0.5px solid #c3c7cb;
-`;
+import Divider from "../Divider";
 
 const Link = styled.a.attrs({
 	target: "_blank",

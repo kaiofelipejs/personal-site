@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "@xstyled/styled-components";
+import Divider from "../Divider";
 
 const PostTitle = styled.a.attrs({
 	target: "_blank",
@@ -10,10 +11,6 @@ const PostTitle = styled.a.attrs({
 	font-size: 16px;
 	cursor: pointer;
 	font-weight: bold;
-`;
-
-const Divider = styled.hr`
-	border: 0.5px solid #c3c7cb;
 `;
 
 const PostDescription = styled.p``;

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@xstyled/styled-components";
 import { Button } from "@react95/core";
 import projects from "./content";
+import Divider from "../Divider";
 
 const Link = styled.a.attrs({
 	target: "_blank",
@@ -13,11 +14,6 @@ const Link = styled.a.attrs({
 
 const ListItem = styled.li`
 	margin-bottom: 5px;
-`;
-
-const Divider = styled.hr`
-	margin-top: 15px;
-	border: 0.5px solid #c3c7cb;
 `;
 
 const Projects = () => (
