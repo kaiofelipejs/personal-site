@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "@xstyled/styled-components";
 import { ThemeProvider, GlobalStyle, TaskBar } from "@react95/core";
-
-import Files from "./Components/Files/index";
+import Files from "./Components/Files";
 import Loading from "./Components/Loading";
 import TaskList from "./Components/TaskList";
 import FileModal from "./Components/FileModal.js";
-
 import FileNamesIcons from "./Components/FileNamesIcons";
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -66,25 +64,23 @@ const Style = createGlobalStyle`
   }
 `;
 
-function App() {
+const App = () => {
 	const [files, setFiles] = useState({});
 	const [selectedFile, setSelectedFile] = useState({});
 	const [showModal, toggleModal] = useState(false);
 	const [loading, toggleLoading] = useState(false);
 
-	function openModal() {
+	const openModal = () => {
 		toggleModal(true);
-	}
+	};
 
-	function closeModal() {
+	const closeModal = () => {
 		toggleModal(false);
-	}
+	};
 
 	useEffect(() => {
 		toggleLoading(true);
-
 		setFiles(FileNamesIcons);
-
 		setTimeout(() => toggleLoading(false));
 	}, []);
 
@@ -100,7 +96,7 @@ function App() {
 			</Title>
 			<SubtitleWrapper>
 				<Subtitle>
-					I'm Kaio Felipe Silva, a simple guy that write some codes.
+					I'm Kaio Felipe Silva, a simple guy that writes some codes.
 				</Subtitle>
 			</SubtitleWrapper>
 
@@ -126,6 +122,6 @@ function App() {
 			{loading && <Loading />}
 		</ThemeProvider>
 	);
-}
+};
 
 export default App;
