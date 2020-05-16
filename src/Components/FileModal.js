@@ -1,11 +1,10 @@
 import React from "react";
 import { Modal, Frame } from "@react95/core";
-
 import Career from "./Career";
 import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
-import Posts from "./BlogPosts";
+import BlogPosts from "./BlogPosts";
 
 const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 	const boxProps = {
@@ -13,7 +12,7 @@ const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 		height: isMobile ? window.innerHeight - 30 : "auto",
 	};
 
-	function renderContent(selectedFile) {
+	const renderContent = (selectedFile) => {
 		switch (selectedFile.name) {
 			case "About":
 				return <About />;
@@ -22,11 +21,11 @@ const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 			case "Career":
 				return <Career />;
 			case "Blog posts":
-				return <Posts />;
+				return <BlogPosts />;
 			default:
 				return <Contact />;
 		}
-	}
+	};
 	return (
 		<Modal
 			{...boxProps}
