@@ -1,4 +1,4 @@
-export const courses = [
+const content = [
 	{
 		name: "Ruby I: Introdução a Lógica de Programação com Jogos",
 		organization: "Alura Cursos Online",
@@ -86,3 +86,5 @@ export const courses = [
 		},
 	},
 ];
+
+export default content;
