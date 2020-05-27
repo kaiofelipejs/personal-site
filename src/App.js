@@ -5,7 +5,7 @@ import Files from "./Components/Files";
 import Loading from "./Components/Loading";
 import TaskList from "./Components/TaskList";
 import FileModal from "./Components/FileModal";
-import FileNamesIcons from "./Components/FileNamesIcons";
+import FilesNamesIcons from "./Components/Files/FilesNamesIcons";
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
 	navigator.userAgent
@@ -80,7 +80,7 @@ const App = () => {
 
 	useEffect(() => {
 		toggleLoading(true);
-		setFiles(FileNamesIcons);
+		setFiles(FilesNamesIcons);
 		setTimeout(() => toggleLoading(false));
 	}, []);
 
