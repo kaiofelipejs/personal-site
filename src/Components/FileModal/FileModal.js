@@ -1,10 +1,10 @@
 import React from "react";
 import { Modal, Frame } from "@react95/core";
-import Career from "./Career";
-import About from "./About";
-import Projects from "./Projects";
-import Contact from "./Contact";
-import BlogPosts from "./BlogPosts";
+import Career from "../Career";
+import About from "../About";
+import Projects from "../Projects";
+import Contact from "../Contact";
+import BlogPosts from "../BlogPosts";
 
 const FileModal = ({ selectedFile, closeModal, isMobile }) => {
 	const boxProps = {

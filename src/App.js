@@ -4,7 +4,7 @@ import { ThemeProvider, GlobalStyle, TaskBar } from "@react95/core";
 import Files from "./Components/Files";
 import Loading from "./Components/Loading";
 import TaskList from "./Components/TaskList";
-import FileModal from "./Components/FileModal.js";
+import FileModal from "./Components/FileModal";
 import FileNamesIcons from "./Components/FileNamesIcons";
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
