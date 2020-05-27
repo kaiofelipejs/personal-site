@@ -1,16 +1,9 @@
 import React from "react";
-import styled from "@xstyled/styled-components";
+import Link from "../Link";
 import Resume from "../Resume";
 import Education from "../Education";
 import Divider from "../Divider";
 import { courses } from "./content";
-
-const Link = styled.a.attrs({
-	target: "_blank",
-	rel: "noopener noreferrer",
-})`
-	cursor: pointer;
-`;
 
 const Career = () => (
 	<>
