@@ -20,7 +20,10 @@ const SocialLinksList = styled.ul`
 
 const SocialLinksItem = styled.li``;
 
-const SocialLinksLink = styled.a`
+const SocialLinksLink = styled.a.attrs({
+	target: "_blank",
+	rel: "noopener noreferrer",
+})`
 	display: inline-block;
 	text-align: center;
 	font-size: 20px;
@@ -40,12 +43,7 @@ const Contact = () => (
 
 					return (
 						<SocialLinksItem key={i}>
-							<SocialLinksLink
-								href={link.url}
-								title={link.label}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
+							<SocialLinksLink href={link.url} title={link.label}>
 								<Icon />
 							</SocialLinksLink>
 						</SocialLinksItem>
