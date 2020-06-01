@@ -2,6 +2,7 @@ import React from "react";
 import { links, email } from "./content";
 import Icons from "./Icons";
 import styled from "@xstyled/styled-components";
+import Link from "../Link";
 
 const SocialLinksWrapper = styled.nav`
 	display: flex;
@@ -53,10 +54,7 @@ const Contact = () => (
 			</SocialLinksList>
 		</SocialLinksWrapper>
 		<p>
-			Or sending me a message in:
-			<a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
-				{` ${email}`}
-			</a>
+			Or sending me a message in: <Link href={`mailto:${email}`}>{email}</Link>
 		</p>
 	</>
 );
