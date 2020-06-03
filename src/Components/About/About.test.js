@@ -1,10 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import About from "../About";
 
-test("Should title is h3 tag", () => {
-	const { getByTestId } = render(<About />);
-	const title = getByTestId("about-title");
+describe("<About />", () => {
+	it("Should to be in the document", () => {
+		const { getByTestId } = render(<About />);
 
-	expect(title.tagName).toBe("H3");
+		expect(getByTestId("about")).toBeInTheDocument();
+	});
 });
