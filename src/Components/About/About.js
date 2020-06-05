@@ -19,9 +19,9 @@ const About = () => (
 			My name is Kaio Felipe Silva, I am 21 years old and from Florianópolis/SC
 			- Brazil. Currently, I working in RD Station, the biggest platform for
 			marketing automation, and sales for SMBs across the world. I like solving
-			problems, build awesome products, and contribute to open-source projects.
-			Most of my skills are on the frontend (with React mainly), but I venture
-			in backend sometimes.
+			problems, build awesome things with code, and contribute to open-source
+			projects. Most of my skills are on the frontend (with React mainly), but I
+			venture in backend sometimes.
 		</p>
 
 		<p>
