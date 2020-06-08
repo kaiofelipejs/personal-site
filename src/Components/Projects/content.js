@@ -3,7 +3,7 @@ const projects = [
 		name: "My personal site (this)",
 		description:
 			"Created for fun and training skills with ReactJS. I chose the Windows 95 theme to provide a nostalgic experience.",
-		tools: ["ReactJS with React95 library", "Netlify"],
+		tools: ["ReactJS", "React95 lib", "Netlify"],
 		urls: {
 			sourceCode: "https://github.com/kaiofelipejs/personal-site",
 			appUrl: "",
