@@ -1,14 +1,26 @@
 const Content = [
 	{
 		companyName: "Resultados Digitais",
+		job: "Software Engineer",
+		description:
+			"Building RD Station Marketing features. Full description in progress...",
+		dates: {
+			startMonth: "June",
+			startYear: "2020",
+			endMonth: "",
+			endYear: "",
+		},
+	},
+	{
+		companyName: "Resultados Digitais",
 		job: "Tech Recruiter",
 		description:
 			"I contribute with Sourcing/Hunting of people to be part of our Product & Engineering team, attraction actions in media and events (this includes arts and landing pages), interviews, phone screenings, briefings, job posts and continuous improvement in processes focused on Candidate Experience.",
 		dates: {
 			startMonth: "April",
 			startYear: "2018",
-			endMonth: "",
-			endYear: "",
+			endMonth: "June",
+			endYear: "2020",
 		},
 	},
 	{
