@@ -8,7 +8,7 @@ const PostTitle = styled.a.attrs({
 })`
 	display: block;
 	padding-top: 10px;
-	font-size: 16px;
+	font-size: 14px;
 	cursor: pointer;
 	font-weight: bold;
 `;
@@ -27,6 +27,9 @@ const BlogPosts = () => {
 			.then((res) => res.json())
 			.then(({ items }) => {
 				return items;
+			})
+			.catch((e) => {
+				console.log(e);
 			});
 	};
 
@@ -65,18 +68,22 @@ const BlogPosts = () => {
 
 	return (
 		<>
-			{posts.map((post) => (
-				<div key={post.title}>
-					<PostTitle href={post.guid}>{post.title}</PostTitle>
-					<PostDate>{formatDate(post.pubDate)}</PostDate>
-					<PostDescription>
-						{getTextFromTag(post.description, "p")}
-					</PostDescription>
-					<Divider />
-				</div>
-			))}
-
 			{loading && "Loading..."}
+			{!loading && (
+				<>
+					<h2>Posts written on Medium.com</h2>
+					{posts.map((post) => (
+						<div key={post.title}>
+							<PostTitle href={post.guid}>{post.title}</PostTitle>
+							<PostDate>{formatDate(post.pubDate)}</PostDate>
+							<PostDescription>
+								{getTextFromTag(post.description, "p")}
+							</PostDescription>
+							<Divider />
+						</div>
+					))}
+				</>
+			)}
 		</>
 	);
 };
