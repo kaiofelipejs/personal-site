@@ -56,7 +56,7 @@ const Subtitle = styled.h3`
 
 const Style = createGlobalStyle`
   body {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   p {
