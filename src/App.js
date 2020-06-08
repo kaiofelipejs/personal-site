@@ -17,12 +17,6 @@ const Title = styled.h1`
 	text-align: center;
 `;
 
-const SubtitleWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-`;
-
 const Subtitle = styled.h3`
 	width: 100%;
 	text-align: center;
@@ -30,7 +24,6 @@ const Subtitle = styled.h3`
 		typing 4s steps(40) 1s normal both;
 
 	border-right: 2px solid rgba(0, 0, 0, 0.75);
-	text-align: center;
 	margin: 0 auto;
 	white-space: nowrap;
 	overflow: hidden;
@@ -40,7 +33,7 @@ const Subtitle = styled.h3`
 			width: 0;
 		}
 		to {
-			width: 24em;
+			width: 19em;
 		}
 	}
 
@@ -56,7 +49,7 @@ const Subtitle = styled.h3`
 
 const Style = createGlobalStyle`
   body {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   p {
@@ -94,11 +87,8 @@ const App = () => {
 					👋🏽
 				</span>
 			</Title>
-			<SubtitleWrapper>
-				<Subtitle>
-					I'm Kaio Felipe Silva, a simple guy that writes some codes.
-				</Subtitle>
-			</SubtitleWrapper>
+
+			<Subtitle>I'm Kaio, a simple guy that writes some codes.</Subtitle>
 
 			{Object.keys(files).length > 0 && (
 				<Files
