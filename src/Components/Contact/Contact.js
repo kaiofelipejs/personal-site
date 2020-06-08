@@ -34,7 +34,7 @@ const SocialLinksLink = styled.a.attrs({
 
 const Contact = () => (
 	<>
-		<h3>Let's talk!</h3>
+		<h2>Let's talk!</h2>
 		<p>You can find me in these sites:</p>
 		<SocialLinksWrapper>
 			<SocialLinksList>
