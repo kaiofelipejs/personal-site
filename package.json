@@ -4,7 +4,7 @@
 	"homepage": "",
 	"private": false,
 	"dependencies": {
-		"@react95/core": "^2.7.0",
+		"@react95/core": "^2.10.5",
 		"@xstyled/styled-components": "^1.19.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
