@@ -1,3 +1,3 @@
 # Personal site
-Know about me and my projects in a nostalgic Windows 95 experience.
-![Screenshot](https://www.imagemhost.com.br/images/2020/04/26/banner.png)
+
+I migrated the site to a [new repo](https://github.com/kaiofelipejs/kaiofelipejs.dev) and created a new version of their. [Check it out!](https://www.kaiofelipejs.dev/)
